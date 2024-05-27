@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:4000/productos';
+const apiUrl = 'https://produapi-41a8efc2ecec.herokuapp.com/productos';
 
 async function ObtenerProducto() {
     const response = await fetch(apiUrl);
