@@ -1,0 +1,28 @@
+name: cliente
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: Install dependencies
+        run: npm install
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          branch: "master"
+          heroku_api_key: 'HRKU-634fc750-4b92-410b-aa7f-5352d356d171'
+          heroku_app_name: "produapi"
+          heroku_email: "alegalindo24@hotmail.com"
